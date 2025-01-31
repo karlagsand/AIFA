@@ -1,0 +1,46 @@
+/* Estilos para el encabezado */
+header {
+    background-color: #e9ecef;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 3px solid #0d6efd;
+}
+
+header img {
+    height: 50px;
+    width: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Estilos para el pie de página */
+footer {
+    background-color: #0d6efd;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social-icons a {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+footer .social-icons a:hover {
+    color: #ffc107;
+}
+
+/* Espaciado y diseño general */
+.bg-light {
+    padding-bottom: 60px; /* Para que el contenido no se traslape con el pie de página */
+}
