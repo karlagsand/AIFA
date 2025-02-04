@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buzón Interno de la Dirección de Operación</title>
-    <link href="public/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Buzón Interno de la Dirección de Operación</title>
+  <!-- Bootstrap CSS -->
+  <link href="public/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Hoja de estilos global -->
+  <link href="public/css/styles.css" rel="stylesheet">
 </head>
-<body class="bg-light">
-    <div class="container text-center mt-5">
-        <h1 class="fw-bold">Buzón Interno de la Dirección de Operación</h1>
-        <h4 class="text-muted">“Tu participación cuenta”</h4>
-        <div class="row justify-content-center mt-4">
-            <div class="col-md-3">
-                <a href="usuario/views/formulario.php?area=Guardia Nacional" class="btn btn-primary btn-lg w-100">Guardia Nacional</a>
-            </div>
-            <div class="col-md-3">
-                <a href="usuario/views/formulario.php?area=Módulos de información AIFA" class="btn btn-secondary btn-lg w-100">Módulos de información AIFA</a>
-            </div>
-            <div class="col-md-3">
-                <a href="usuario/views/formulario.php?area=Ecodeli" class="btn btn-success btn-lg w-100">Ecodeli</a>
-            </div>
-            <div class="col-md-3">
-                <a href="admin/views/login.php" class="btn btn-danger btn-lg w-100">Administrador</a>
-            </div>
-        </div>
+<body>
+  <!-- Header con logo alineado a la izquierda -->
+  <header>
+    <img src="public/img/logo.png" alt="Logo AIFA">
+  </header>
+
+  <!-- Contenido principal -->
+  <div class="container main-content">
+    <h1>Buzón Interno de la Dirección de Operación</h1>
+    <h4>“Tu participación cuenta”</h4>
+    
+    <!-- Grupo de botones de acceso -->
+    <div class="btn-group-access">
+      <div class="btn-row">
+        <a href="usuario/views/formulario.php?area=Guardia Nacional" class="btn btn-access">Guardia Nacional</a>
+        <a href="usuario/views/formulario.php?area=Módulos de información AIFA" class="btn btn-access">Módulos de información AIFA</a>
+        <a href="usuario/views/formulario.php?area=Ecodeli" class="btn btn-access">Ecodeli</a>
+      </div>
+      <!-- Botón Administrador -->
+      <a href="admin/views/login.php" class="btn btn-admin">Administrador</a>
     </div>
-    <script src="public/js/bootstrap.bundle.min.js"></script>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p class="text-center">© <?php echo date("Y"); ?> Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="public/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

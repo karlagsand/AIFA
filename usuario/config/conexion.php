@@ -1,6 +1,6 @@
 <?php
-$host = "localhost";
-$dbname = "incidencias_aifa";
+$host     = "localhost";
+$dbname   = "incidencias_aifa";
 $username = "root";
 $password = "";
 

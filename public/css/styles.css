@@ -1,46 +1,155 @@
-/* Estilos para el encabezado */
-header {
-    background-color: #e9ecef;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 3px solid #0d6efd;
+/* Tipografía global */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
 }
 
+/* Header */
+header {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-bottom: 2px solid #dee2e6;
+    display: flex;
+    justify-content: flex-start; /* Alineación a la izquierda */
+    align-items: center;
+}
 header img {
-    height: 50px;
+    height: 60px;
     width: auto;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 1.5rem;
+/* Contenido principal */
+.main-content {
+    padding: 50px 30px;
+    text-align: center;
+    background-color: #ffffff;
+    margin: 40px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+}
+.main-content h1 {
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+.main-content h4 {
+    font-weight: 400;
+    color: #6c757d;
+    margin-bottom: 30px;
+    font-size: 1.3rem;
 }
 
-/* Estilos para el pie de página */
+/* Grupo de botones de acceso */
+.btn-group-access {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.btn-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.btn-access {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    background-color: #538365;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.btn-access:hover {
+    background-color: #538365;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Botón Administrador */
+.btn-admin {
+    width: 180px;
+    font-size: 0.9rem;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    text-decoration: none;
+    background-color: #6c757d;
+    color: #fff;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.btn-admin:hover {
+    background-color: #5a6268;
+    transform: scale(1.05);
+}
+
+/* Footer */
 footer {
-    background-color: #0d6efd;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 15px 0;
     position: fixed;
     bottom: 0;
     width: 100%;
+    text-align: center;
 }
 
-footer .social-icons a {
-    margin: 0 10px;
+/* Estilos adicionales para el Panel de Administración */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn-custom {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+}
+
+.table-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 15px;
+    vertical-align: middle;
+}
+
+.table thead {
+    background-color: #343a40;
     color: white;
-    font-size: 1.2rem;
-    text-decoration: none;
 }
 
-footer .social-icons a:hover {
-    color: #ffc107;
+.table tbody tr:hover {
+    background-color: #f1f1f1;
 }
 
-/* Espaciado y diseño general */
-.bg-light {
-    padding-bottom: 60px; /* Para que el contenido no se traslape con el pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #343a40;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
