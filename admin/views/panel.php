@@ -5,10 +5,10 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 
-// Conexión a la base de datos para obtener los reportes
+// Incluir conexión a la base de datos para obtener los reportes
 require_once __DIR__ . '/../../usuario/config/conexion.php';
 
-
+// Si la tabla no tiene la columna "id", podemos ordenar por "fecha_registro" (o por otra columna existente)
 $stmt = $conn->prepare("SELECT * FROM reportes ORDER BY fecha_registro DESC");
 $stmt->execute();
 $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,6 +31,8 @@ $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <!-- Si en el futuro se agrega la columna "id", puedes mostrarla -->
+                    <!-- <th>ID</th> -->
                     <th>Folio</th>
                     <th>Tipo Reporte</th>
                     <th>Descripción</th>
@@ -43,6 +45,8 @@ $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($reportes as $rep): ?>
                     <tr>
+                        <!-- Si la columna id existe, puedes descomentar la siguiente línea -->
+                        <!-- <td><?php echo $rep['id']; ?></td> -->
                         <td><?php echo $rep['folio']; ?></td>
                         <td><?php echo $rep['tipo_reporte']; ?></td>
                         <td><?php echo $rep['descripcion']; ?></td>

@@ -28,7 +28,7 @@ header img {
     background-color: #ffffff;
     margin: 40px auto;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     max-width: 600px;
 }
 .main-content h1 {
@@ -43,7 +43,7 @@ header img {
     font-size: 1.3rem;
 }
 
-/* Grupo de botones de acceso */
+/* Botones */
 .btn-group-access {
     display: flex;
     flex-direction: column;
@@ -56,33 +56,26 @@ header img {
     gap: 10px;
     justify-content: center;
 }
-.btn-access {
+.btn-access, .btn-admin {
     width: 180px;
     font-size: 0.9rem;
     padding: 10px;
     border-radius: 6px;
     border: none;
     text-decoration: none;
-    background-color: #538365;
     transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+.btn-access {
+    background-color: #538365;
 }
 .btn-access:hover {
     background-color: #538365;
     color: #fff;
     transform: scale(1.05);
 }
-
-/* Botón Administrador */
 .btn-admin {
-    width: 180px;
-    font-size: 0.9rem;
-    padding: 10px;
-    border-radius: 6px;
-    border: none;
-    text-decoration: none;
     background-color: #6c757d;
     color: #fff;
-    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 .btn-admin:hover {
     background-color: #5a6268;
@@ -142,14 +135,4 @@ footer {
 
 .table tbody tr:hover {
     background-color: #f1f1f1;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #343a40;
-    color: white;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
 }
