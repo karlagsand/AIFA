@@ -1,3 +1,4 @@
+// Código para el formulario:
 <?php
 $area = isset($_GET['area']) ? htmlspecialchars($_GET['area']) : 'Área Desconocida';
 ?>
@@ -43,12 +44,9 @@ $area = isset($_GET['area']) ? htmlspecialchars($_GET['area']) : 'Área Desconoc
             </div>
         </form>
     </div>
-    
-
     <script>
         document.getElementById('reporteForm').addEventListener('submit', function(event) {
             let tipoReporte = document.querySelector('input[name="tipo_reporte"]:checked');
-            // Validación: solo se permiten reportes del tipo "comentario"
             if (!tipoReporte || tipoReporte.value !== 'comentario') {
                 event.preventDefault();
                 alert('Solo se pueden hacer reportes con la opción Comentario o Sugerencia.');

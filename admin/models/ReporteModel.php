@@ -1,28 +1,23 @@
 <?php
-// Se incluye la conexión a la base de datos. La ruta se ajusta para salir desde /admin/models hacia /usuario/config.
 require_once __DIR__ . '/../../usuario/config/conexion.php';
 
-class ReporteModel {
-    private $conn;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nombre = $_POST['nombre'] ?? '';
+    $telefono = $_POST['telefono'] ?? '';
+    $tipo_reporte = $_POST['tipo_reporte'] ?? '';
+    $descripcion = $_POST['descripcion'] ?? '';
+    $imagen = '';
 
-    public function __construct() {
-        // Se utiliza la variable global $conn definida en conexion.php
-        global $conn;
-        $this->conn = $conn;
+    if (!empty($_FILES['imagen']['name'])) {
+        $targetDir = "uploads/";
+        $imagen = $targetDir . basename($_FILES['imagen']['name']);
+        move_uploaded_file($_FILES['imagen']['tmp_name'], $imagen);
     }
 
-    public function guardarReporte($folio, $tipo_reporte, $descripcion, $imagen_hallazgo, $nombre_usuario, $tel_usuario) {
-        $sql = "INSERT INTO reportes (folio, tipo_reporte, descripcion, imagen_hallazgo, estado, nombre_usuario, tel_usuario) 
-                VALUES (:folio, :tipo_reporte, :descripcion, :imagen_hallazgo, 'pendiente', :nombre_usuario, :tel_usuario)";
-        $stmt = $this->conn->prepare($sql);
-        return $stmt->execute([
-            ':folio'          => $folio,
-            ':tipo_reporte'   => $tipo_reporte,
-            ':descripcion'    => $descripcion,
-            ':imagen_hallazgo'=> $imagen_hallazgo,
-            ':nombre_usuario' => $nombre_usuario,
-            ':tel_usuario'    => $tel_usuario,
-        ]);
-    }
+    $stmt = $conn->prepare("INSERT INTO reportes (nombre_usuario, tel_usuario, tipo_reporte, descripcion, imagen, fecha_registro) VALUES (?, ?, ?, ?, ?, NOW())");
+    $stmt->execute([$nombre, $telefono, $tipo_reporte, $descripcion, $imagen]);
+
+    header("Location: ../../index.php");
+    exit;
 }
 ?>
