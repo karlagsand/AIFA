@@ -1,4 +1,3 @@
-// Código para el formulario:
 <?php
 $area = isset($_GET['area']) ? htmlspecialchars($_GET['area']) : 'Área Desconocida';
 ?>

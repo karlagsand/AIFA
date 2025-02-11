@@ -1,36 +1,32 @@
 <?php
-// Usamos __DIR__ para establecer la ruta correcta al modelo
 require_once __DIR__ . '/../../admin/models/ReporteModel.php';
 
 // Variables para mensajes
 $mensaje = '';
-$mensaje_clase = ''; // 'alert-success' o 'alert-danger'
+$mensaje_clase = '';
 
 // Obtener los datos del formulario
-$nombre       = $_POST['nombre'] ?? null;
-$telefono     = $_POST['telefono'] ?? null;
+$nombre = $_POST['nombre'] ?? null;
+$telefono = $_POST['telefono'] ?? null;
 $tipo_reporte = $_POST['tipo_reporte'] ?? null;
-$descripcion  = $_POST['descripcion'] ?? null;
-$imagen       = $_FILES['imagen'] ?? null;
+$descripcion = $_POST['descripcion'] ?? null;
+$imagen = $_FILES['imagen'] ?? null;
 
 // Procesar la imagen si fue subida
 $imagen_ruta = null;
 if ($imagen && $imagen['error'] === UPLOAD_ERR_OK) {
-    // Se crea la ruta relativa para la imagen
     $imagen_ruta = 'uploads/' . basename($imagen['name']);
-    // Mover la imagen a la carpeta pública (ajusta la ruta según tu estructura)
     move_uploaded_file($imagen['tmp_name'], __DIR__ . '/../../public/img/' . basename($imagen['name']));
 }
 
-// Crear una instancia del modelo y generar un folio único
+// Crear instancia del modelo y generar el folio
 $reporteModel = new ReporteModel();
-$folio = 'RPT' . strtoupper(uniqid());
+$folio = $reporteModel->generarFolio();
 
 // Guardar el reporte en la base de datos
 $resultado = $reporteModel->guardarReporte($folio, $tipo_reporte, $descripcion, $imagen_ruta, $nombre, $telefono);
 
 if ($resultado) {
-    // Redirige a la página principal con un mensaje de éxito
     header("Location: ../../index.php?mensaje=exito");
     exit;
 } else {
@@ -38,6 +34,7 @@ if ($resultado) {
     $mensaje_clase = 'alert-danger';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

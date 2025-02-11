@@ -30,10 +30,10 @@ $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <thead>
                 <tr>
                     <th>Folio</th>
-                    <th>Tipo Reporte</th>
+                    <th>Tipo  de reporte</th>
                     <th>Descripción</th>
                     <th>Estado</th>
-                    <th>Nombre Usuario</th>
+                    <th>Nombre de usuario</th>
                     <th>Teléfono</th>
                     <th>Fecha de Registro</th>
                     <th>Imagen</th>
@@ -50,10 +50,10 @@ $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $rep['tel_usuario']; ?></td>
                         <td><?php echo $rep['fecha_registro']; ?></td>
                         <td>
-                            <?php if (!empty($rep['imagen'])): ?>
-                                <a href="<?php echo $rep['imagen']; ?>" target="_blank">Ver Imagen</a>
+                            <?php if (!empty($rep['imagen_hallazgo'])): ?>
+                                <a href="<?php echo $rep['imagen_hallazgo']; ?>" target="_blank">Ver Imagen</a>
                             <?php else: ?>
-                                No adjunta
+                                Sin imagen
                             <?php endif; ?>
                         </td>
                     </tr>
