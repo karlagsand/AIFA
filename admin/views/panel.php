@@ -30,7 +30,7 @@ $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <thead>
                 <tr>
                     <th>Folio</th>
-                    <th>Tipo  de reporte</th>
+                    <th>Tipo de reporte</th>
                     <th>Descripción</th>
                     <th>Estado</th>
                     <th>Nombre de usuario</th>
@@ -51,7 +51,9 @@ $reportes = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?php echo $rep['fecha_registro']; ?></td>
                         <td>
                             <?php if (!empty($rep['imagen_hallazgo'])): ?>
-                                <a href="<?php echo $rep['imagen_hallazgo']; ?>" target="_blank">Ver Imagen</a>
+                                <a href="../../admin/contenido/<?php echo $rep['imagen_hallazgo']; ?>" target="_blank">Ver Imagen</a>
+                                <br>
+                                <img src="../../admin/contenido/<?php echo $rep['imagen_hallazgo']; ?>" alt="Imagen del reporte" width="100">
                             <?php else: ?>
                                 Sin imagen
                             <?php endif; ?>
